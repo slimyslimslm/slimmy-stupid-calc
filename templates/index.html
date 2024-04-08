@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css"href="static/styles.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <title>Slimmy's Stupid Calculator</title>
+        <script src="static/scripts/main.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css" integrity="sha384-wcIxkf4k558AjM3Yz3BBFQUbk/zgIYC2R0QpeeYb+TwlBVMrlgLqwRjRtGZiK7ww" crossorigin="anonymous">
+
+        <!-- The loading of KaTeX is deferred to speed up page rendering -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.js" integrity="sha384-hIoBPJpTUs74ddyc4bFZSM1TVlQDA60VBbJS0oA934VSz82sBx1X7kSx2ATBDIyd" crossorigin="anonymous"></script>
+
+        <!-- To automatically render math in text elements, include the auto-render extension: -->
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
+            onload="renderMathInElement(document.body);"></script>
+      </head>
+    <body class="center" style="background-color: #B0E0E6;">
+        <div class="intro">
+            <h1>Slimmy's Stupid Calculator</h1>
+            <h3>Welcome to my stupid calculator! Yes, my calculator is stupid. 
+                Sometimes he just doesn't give you the right answer when you enter an expression. 
+                Very sad.</h3>
+        </div>
+        <br style="line-height: 100px;">
+        <div>
+            <textarea class='textarea' id="userInputField" rows="1" cols="50" 
+            placeholder="Enter an expression..."></textarea>
+            <br> <br>
+            <button type="button" class="btn btn-primary" onclick="calculate()">Submit</button>
+            <button type="button" class="btn btn-primary" onclick="clearScreen()">Clear</button>
+            <br> <br>
+            <button type="button" class="btn btn-secondary" onclick="operatorButtons('+')">+</button>
+            <button type="button" class="btn btn-secondary" onclick="operatorButtons('-')">-</button>
+            <button type="button" class="btn btn-secondary" onclick="operatorButtons('*')">*</button>
+            <button type="button" class="btn btn-secondary" onclick="operatorButtons('/')">/</button>
+            <button type="button" class="btn btn-secondary" onclick="operatorButtons('^')">^</button>
+            <button type="button" class="btn btn-secondary" onclick="operatorButtons('par')">()</button>
+            <br>
+            <div class="intro">Answer:</div>
+            <div id="outputField"></div>
+            <script>
+                function calculate() {
+    
+                let expression = document.getElementById("userInputField").value.trim();
+                let outputField = document.querySelector("#outputField");
+                let answer = randomizeOrNot(math.evaluate(expression));
+                outputField.innerHTML = answer;
+            }
+            </script>
+           
+        </div>
+    </body>
+</html>

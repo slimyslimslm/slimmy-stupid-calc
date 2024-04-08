@@ -1,0 +1,26 @@
+.center{
+  text-align: center;
+}
+
+#userInputField{
+  height: 100px;
+  width: 1000px;
+}
+
+#outputField{
+  text-align: center;
+  font-size: 30pt;
+  font-family: "Ink Free", Times, serif;
+  font: 700;
+}
+
+.intro {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.textarea {
+  background-color:beige;
+  font-size: 30pt;
+  font-family: "Ink Free", Times, serif;
+  font: 700;
+}
